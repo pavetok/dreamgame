@@ -3,6 +3,6 @@ Resource    common.robot
 
 *** Test Cases ***
 User Can See Hero List
-    ${HeroListPage} =  Get Library Instance  HeroListPage
-    When User.Opens  ${HeroListPage}
-    Then User.Should See  ${HeroListPage}
+    ${hero1} =  Hero.New  Figvan
+    When User.Opens  ${HeroesPage}
+    Then User.Should See  ${hero1}
