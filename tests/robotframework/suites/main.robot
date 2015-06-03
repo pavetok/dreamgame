@@ -3,4 +3,6 @@ Resource    common.robot
 
 *** Test Cases ***
 User Can See Hero List
-    HeroListPage.Should Be Visible
+    ${HeroListPage} =  Get Library Instance  HeroListPage
+    When User.Opens  ${HeroListPage}
+    Then User.Should See  ${HeroListPage}

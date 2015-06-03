@@ -20,14 +20,13 @@ class Selement(object):
     def se(self):
         if not self._selenium_2_library:
             self._selenium_2_library = self.builtin.get_library_instance("Selenium2Library")
-            # self.selenium_2_library = Selenium2Library()
         return self._selenium_2_library
 
     @property
     def locator(self):
         if self._parent:
-            return "jquery=%s %s".format(self._parent.locator, self._locator)
-        return "jquery=%s".format(self._locator)
+            return "jquery={0} {1}".format(self._parent.locator, self._locator)
+        return "jquery={0}".format(self._locator)
 
     @property
     def parent(self):
@@ -35,3 +34,6 @@ class Selement(object):
 
     def should_be_visible(self):
         self.se.element_should_be_visible(self.locator)
+
+    def click(self):
+        self.se.click_element(self.locator)

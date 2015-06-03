@@ -34,7 +34,8 @@ Test Teardown
     No Operation
 
 Setup Selenium
-    Create Webdriver  PhantomJS  executable_path=${PHANTOMJS_BINPATH}
+#    Create Webdriver  PhantomJS  executable_path=${PHANTOMJS_BINPATH}
+    Create Webdriver  Chrome
     Go To  ${MIRROR_URL}
     Maximize Browser Window
     Set Selenium Speed  0s

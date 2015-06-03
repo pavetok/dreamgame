@@ -1,4 +1,5 @@
 from base_page import BasePage
+from selement import Selement
 
 
 class HeroListPage(BasePage):
@@ -7,11 +8,14 @@ class HeroListPage(BasePage):
         super(HeroListPage, self).__init__(url)
         self._records = []
 
-    def with_record(self, record):
-        self._records.append(record)
-
     def should_be_visible(self):
         super(HeroListPage, self).should_be_visible()
         for record in self._records:
             record.should_be_visible()
 
+    def with_records(self, *records):
+        self._records.extend(records)
+
+    @property
+    def menu_link(self):
+        return Selement(".navbar #hero-list")
