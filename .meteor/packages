@@ -15,3 +15,5 @@ ian:accounts-ui-bootstrap-3
 underscore
 iron:router
 sacha:spin
+robertlowe:meteor-phaser
+velocity:console-reporter
