@@ -2,7 +2,7 @@ describe('Database', function() {
   var database;
 
   beforeAll(function() {
-    database = new Database();
+    database = new Package['pavetok:fixtures'].Database();
   });
 
   beforeEach(function(done) {
@@ -13,7 +13,7 @@ describe('Database', function() {
     //given
     var hero = new Hero('hero1');
     //when
-    database.save(hero);
+    database.contains(hero);
     //then
     database.shouldContain(hero);
   });
@@ -21,10 +21,8 @@ describe('Database', function() {
   it('can be reseted', function(done) {
     //given
     var hero = new Hero('hero1');
-    //when
+    //and
     database.contains(hero);
-    //then
-    database.shouldContain(hero);
     //when
     database.reset();
     //then

@@ -1,7 +1,4 @@
-
-Database = function Database() {
-
-};
+Database = function Database() {};
 
 Database.prototype.reset = function(done) {
 	done = done || function(){};
@@ -14,7 +11,7 @@ Database.prototype.reset = function(done) {
 	});
 };
 
-Database.prototype.save = function(entity) {
+Database.prototype.contains = function(entity) {
 	Heroes.insert(entity, function(error, _id) {
 		if (error) {
 			throw new Error('Fail to save: ' + error);
@@ -24,10 +21,6 @@ Database.prototype.save = function(entity) {
 	});
 };
 
-Database.prototype.contains = function(entity) {
-	this.save(entity)
-};
-
 Database.prototype.shouldContain = function(expected) {
 	var actual = Heroes.findOne(expected);
 	expect(actual.name).toEqual(expected.name);
@@ -35,14 +28,14 @@ Database.prototype.shouldContain = function(expected) {
 
 Database.prototype.has = function(entity) {
 	return function() {
-		console.log('Check that database contains:', entity)
+		console.log('Check that database contains:', entity);
 		return Heroes.findOne({name: entity.name}) !== undefined;
 	};
 };
 
 Database.prototype.doesNotHave = function(entity) {
 	return function() {
-		console.log('Check that database does not contain:', entity)
+		console.log('Check that database does not contain:', entity);
 		return Heroes.findOne({name: entity.name}) === undefined;
 	};
 };

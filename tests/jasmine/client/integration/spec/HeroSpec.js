@@ -12,7 +12,7 @@ describe('Hero', function() {
     database.reset(done);
   });
 
-  xit('should be presented in the browser', function() {
+  xit('should be presented on the page', function() {
     //given
     var hero = new Hero('hero1');
     //and
