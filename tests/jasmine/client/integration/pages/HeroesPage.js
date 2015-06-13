@@ -1,7 +1,14 @@
-HeroesPage = function HeroesPage() {
-
+HeroesPage = function HeroesPage(url) {
+	this.url = url;
 };
 
 HeroesPage.prototype.shouldContain = function(expected) {
-	expect(false).toBe(true);
+	var $heroName = $('.hero-name:contains(hero1)').text();
+	expect($heroName).toEqual(expected.name);
+};
+
+HeroesPage.prototype.opens = function(done) {
+	Router.go(this.url);
+	Tracker.afterFlush(done);
+	waitForRouter(done);
 };
