@@ -7,7 +7,7 @@ Database.prototype.reset = function(done) {
 	done = done || function(){};
 	Meteor.call('reset', function(error, result) {
 		if (error) {
-			throw new Error('Database reset failed');
+			throw new Error('Database reset failed: ' + error);
 		}
 		console.log('Database reseted');
 		done();
@@ -17,7 +17,7 @@ Database.prototype.reset = function(done) {
 Database.prototype.save = function(entity) {
 	Heroes.insert(entity, function(error, _id) {
 		if (error) {
-			throw new Error('Fail to save: ' + entity);
+			throw new Error('Fail to save: ' + error);
 		}
 		entity._id = _id;
 		console.log('Saved to database:', entity)
