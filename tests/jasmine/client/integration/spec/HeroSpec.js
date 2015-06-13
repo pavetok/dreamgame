@@ -1,10 +1,11 @@
 describe('Hero', function() {
-  'use strict';
   var database;
+  var user;
   var heroesPage;
 
   beforeAll(function() {
-    database = new Database();
+    database = new Package['pavetok:fixtures'].Database();
+    user = new User();
     heroesPage = new HeroesPage('/heroes');
   });
 
@@ -12,13 +13,13 @@ describe('Hero', function() {
     database.reset(done);
   });
 
-  xit('should be presented on the page', function() {
+  it('should be presented on the page', function() {
     //given
     var hero = new Hero('hero1');
     //and
     database.contains(hero);
     //when
-    heroesPage.opens();
+    user.opens(heroesPage);
     //then
     heroesPage.shouldContain(hero)
   });

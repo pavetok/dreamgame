@@ -1,14 +1,14 @@
 HeroesPage = function HeroesPage(url) {
-	this.url = url;
+	this._url = url;
 };
 
-HeroesPage.prototype.shouldContain = function(expected) {
-	var $heroName = $('.hero-name:contains(hero1)').text();
-	expect($heroName).toEqual(expected.name);
+HeroesPage.prototype.getUrl = function() {
+	return this._url;
 };
 
-HeroesPage.prototype.opens = function(done) {
-	Router.go(this.url);
-	Tracker.afterFlush(done);
-	waitForRouter(done);
+HeroesPage.prototype.shouldContain = function(expected, done) {
+	done = done || function(){};
+	var heroName = $('.hero-name').text();
+	expect(heroName).toEqual(expected.name);
+	done();
 };
