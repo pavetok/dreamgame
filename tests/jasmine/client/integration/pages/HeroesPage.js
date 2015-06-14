@@ -1,10 +1,9 @@
 HeroesPage = function HeroesPage(url) {
-	this.url = url;
+	BasePage.call(this, url);
 };
 
-HeroesPage.prototype.getUrl = function() {
-	return this.url;
-};
+HeroesPage.prototype = Object.create(BasePage.prototype);
+HeroesPage.prototype.constructor = BasePage;
 
 HeroesPage.prototype.shouldContain = function(expected) {
 	var $heroes = $(".hero");
