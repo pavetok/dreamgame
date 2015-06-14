@@ -2,6 +2,7 @@ describe('Hero', function() {
   var database;
   var user;
   var heroesPage;
+  var hero;
 
   beforeAll(function() {
     database = new Package['pavetok:fixtures'].Database();
@@ -13,10 +14,15 @@ describe('Hero', function() {
     database.reset(done);
   });
 
+  beforeEach(function() {
+    hero = new Hero({
+      name: 'hero1',
+      url: 'url1'
+    });
+  });
+
   it('should be presented on the page', function() {
     //given
-    var hero = new Hero('hero1');
-    //and
     database.contains(hero);
     //when
     user.opens(heroesPage);

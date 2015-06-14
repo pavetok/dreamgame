@@ -1,5 +1,6 @@
 describe('Database', function() {
   var database;
+  var hero;
 
   beforeAll(function() {
     database = new Package['pavetok:fixtures'].Database();
@@ -9,9 +10,14 @@ describe('Database', function() {
     database.reset(done);
   });
 
+  beforeEach(function() {
+    hero = new Hero({
+      name: 'hero1',
+      url: 'url1'
+    });
+  });
+
   it('can save entity', function() {
-    //given
-    var hero = new Hero('hero1');
     //when
     database.contains(hero);
     //then
@@ -19,8 +25,6 @@ describe('Database', function() {
   });
 
   it('can be reseted', function(done) {
-    //given
-    var hero = new Hero('hero1');
     //and
     database.contains(hero);
     //when
