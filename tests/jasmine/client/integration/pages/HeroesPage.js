@@ -8,7 +8,7 @@ HeroesPage.prototype.getUrl = function() {
 
 HeroesPage.prototype.shouldContain = function(expected, done) {
 	done = done || function(){};
-	var heroName = $('.hero-name').text();
+	var heroName = $(".hero-name").text();
 	expect(heroName).toEqual(expected.name);
 	done();
 };
