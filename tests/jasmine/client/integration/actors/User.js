@@ -24,5 +24,5 @@ User.prototype.withPassword = function(password) {
 };
 
 User.prototype.registers = function() {
-	this.currentPage.register(this);
+	this.currentPage.signUpForm.create(this);
 };

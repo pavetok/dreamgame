@@ -1,5 +1,5 @@
-HeroesPage = function HeroesPage(url) {
-	BasePage.call(this, url);
+HeroesPage = function HeroesPage() {
+	BasePage.call(this, "/heroes");
 };
 
 HeroesPage.prototype = Object.create(BasePage.prototype);

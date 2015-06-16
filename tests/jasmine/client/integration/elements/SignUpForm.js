@@ -1,11 +1,11 @@
 SignUpForm = function SignUpForm() {
-	WebElement.call(this, "#login-dropdown-list");
+	Element.call(this, "#login-dropdown-list");
 };
 
-SignUpForm.prototype = Object.create(WebElement.prototype);
+SignUpForm.prototype = Object.create(Element.prototype);
 SignUpForm.prototype.constructor = SignUpForm;
 
-SignUpForm.prototype.register = function(visitor) {
+SignUpForm.prototype.create = function(visitor) {
 	this.open();
 	this.fill(visitor);
 	this.submit();

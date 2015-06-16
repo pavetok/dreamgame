@@ -24,7 +24,5 @@ describe("Visitor", function() {
         visitor.registers();
         //then
         visitor.shouldSee(heroesPage);
-        //and
-        database.shouldContain(visitor);
     });
 });

@@ -1,9 +1,9 @@
 BasePage = function BasePage(url) {
-    WebElement.call(this, "body");
+    Element.call(this, "body");
     this.url = url;
 };
 
-BasePage.prototype = Object.create(WebElement.prototype);
+BasePage.prototype = Object.create(Element.prototype);
 BasePage.prototype.constructor = BasePage;
 
 BasePage.prototype.shouldBeVisible = function() {
