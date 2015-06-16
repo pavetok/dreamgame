@@ -12,3 +12,17 @@ User.prototype.shouldSee = function() {
 		this.currentPage.shouldContain(arguments[i]);
 	}
 };
+
+User.prototype.withEmail = function(email) {
+	this.email = email;
+	return this;
+};
+
+User.prototype.withPassword = function(password) {
+	this.password = password;
+	return this;
+};
+
+User.prototype.registers = function() {
+	this.currentPage.register(this);
+};
