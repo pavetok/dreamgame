@@ -3,13 +3,13 @@ User = function User() {
 };
 
 User.prototype.opens = function(page) {
-	Router.go(page.getUrl());
+	Router.go(page.url);
 	this.currentPage = page;
 };
 
 User.prototype.shouldSee = function() {
 	for (var i = 0; i < arguments.length; ++i) {
-		this.currentPage.shouldContain(arguments[i]);
+		arguments[i].shouldBeVisibleWithChildren();
 	}
 };
 

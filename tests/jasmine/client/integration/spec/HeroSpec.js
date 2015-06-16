@@ -27,7 +27,7 @@ describe("Hero", function() {
     //when
     user.opens(heroesPage);
     //then
-    user.shouldSee(hero)
+    heroesPage.shouldContain(hero)
   });
 
 });

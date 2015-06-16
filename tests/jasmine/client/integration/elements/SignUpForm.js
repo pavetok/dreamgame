@@ -1,6 +1,9 @@
 SignUpForm = function SignUpForm() {
-
+	WebElement.call(this, "#login-dropdown-list");
 };
+
+SignUpForm.prototype = Object.create(WebElement.prototype);
+SignUpForm.prototype.constructor = SignUpForm;
 
 SignUpForm.prototype.register = function(visitor) {
 	this.open();
@@ -9,7 +12,7 @@ SignUpForm.prototype.register = function(visitor) {
 };
 
 SignUpForm.prototype.open = function() {
-	$("#login-dropdown-list").click();
+	this.self().click();
 	$("#signup-link").click();
 };
 

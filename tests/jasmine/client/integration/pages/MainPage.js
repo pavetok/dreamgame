@@ -5,7 +5,7 @@ MainPage = function MainPage(url) {
 };
 
 MainPage.prototype = Object.create(BasePage.prototype);
-MainPage.prototype.constructor = BasePage;
+MainPage.prototype.constructor = MainPage;
 
 MainPage.prototype.register = function(visitor) {
 	this.signUpForm.register(visitor);

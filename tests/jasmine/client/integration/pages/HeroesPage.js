@@ -3,7 +3,7 @@ HeroesPage = function HeroesPage(url) {
 };
 
 HeroesPage.prototype = Object.create(BasePage.prototype);
-HeroesPage.prototype.constructor = BasePage;
+HeroesPage.prototype.constructor = HeroesPage;
 
 HeroesPage.prototype.shouldContain = function(expected) {
 	var $heroes = $(".hero");

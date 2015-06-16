@@ -1,20 +1,21 @@
 describe("Visitor", function() {
     var database;
     var visitor;
-    var user;
     var mainPage;
+    var heroesPage;
 
     beforeAll(function() {
         database = new Package["pavetok:fixtures"].Database();
-        visitor = user = new User();
+        visitor = new User();
         mainPage = new MainPage("/");
+        heroesPage = new HeroesPage("/heroes")
     });
 
     beforeEach(function(done) {
         database.reset(done);
     });
 
-    xit("should be registered", function() {
+    it("should be registered", function() {
         //given
         visitor.withEmail("email1@domain.com").withPassword("password1");
         //when
@@ -22,6 +23,8 @@ describe("Visitor", function() {
         //and
         visitor.registers();
         //then
-        database.shouldContain(user);
+        visitor.shouldSee(heroesPage);
+        //and
+        database.shouldContain(visitor);
     });
 });
