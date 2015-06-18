@@ -11,10 +11,12 @@
 			</button>
 		</div>
 		<div class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li id="hero-list"><a href="{{pathFor "heroList"}}">Heroes</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
+			{{#if currentUser}}
+				<ul class="nav navbar-nav">
+					<li id="hero-list"><a href="{{pathFor "heroList"}}">Heroes</a></li>
+				</ul>
+			{{/if}}
+			<ul class="nav navbar-nav pull-right">
 				{{>atNavButton}}
 			</ul>
 		</div>
