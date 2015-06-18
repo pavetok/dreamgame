@@ -23,6 +23,7 @@ describe("Visitor", function() {
         //and
         visitor.registers();
         //then
+        //todo: user should see profile link
         visitor.shouldSee(heroesPage);
     });
 });
