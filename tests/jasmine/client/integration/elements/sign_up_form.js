@@ -13,13 +13,13 @@ SignUpForm.prototype.create = function(visitor) {
 
 SignUpForm.prototype.open = function() {
 	$("#at-nav-button").click();
-	$("at-signUp").click();
+	$("#at-signUp").click();
 };
 
 SignUpForm.prototype.fill = function(visitor) {
 	$("#at-field-email").val(visitor.email);
 	$("#at-field-password").val(visitor.password);
-	$("at-field-password_again").val(visitor.password);
+	$("#at-field-password_again").val(visitor.password);
 };
 
 SignUpForm.prototype.submit = function() {

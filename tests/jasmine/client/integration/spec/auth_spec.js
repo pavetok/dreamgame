@@ -17,7 +17,7 @@ describe("Visitor", function() {
         database.reset(done);
     });
 
-    it("should be registered", function() {
+    it("should be registered", function(done) {
         //given
         visitor.withEmail("email1@domain.com").withPass("password1");
         //when
@@ -27,6 +27,6 @@ describe("Visitor", function() {
         //then
         visitor.shouldSee(heroesPage);
         //and
-        visitor.shouldSee(signOutButton);
+        visitor.shouldSee(signOutButton, done);
     });
 });

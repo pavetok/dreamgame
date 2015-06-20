@@ -11,8 +11,10 @@ Package.onUse(function(api) {
 
   api.addFiles("fixtures.js", "server");
   api.addFiles("database.js");
+  api.addFiles("helper.js");
 
   api.export("Database");
+  api.export("waitUntilSuccess");
 });
 
 Package.onTest(function(api) {

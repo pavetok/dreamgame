@@ -7,10 +7,8 @@ User.prototype.opens = function(page) {
 	this.currentPage = page;
 };
 
-User.prototype.shouldSee = function() {
-	for (var i = 0; i < arguments.length; ++i) {
-		arguments[i].shouldBeVisibleWithChildren();
-	}
+User.prototype.shouldSee = function(element, done) {
+	element.shouldBeVisible(done);
 };
 
 User.prototype.withEmail = function(email) {
