@@ -7,10 +7,10 @@ SignOutButton = function SignOutButton() {
 SignOutButton.prototype = Object.create(Element.prototype);
 SignOutButton.prototype.constructor = SignOutButton;
 
-SignOutButton.prototype.shouldBeVisible = function(done) {
+SignOutButton.prototype.shouldBeVisible = function (done) {
 	var that = this;
 	Element.prototype.shouldBeVisible.call(that);
-	waitUntilSuccess(function() {
-		expect(that.element().text()).toEqual("Sign Out");
+	waitUntilSuccess(function () {
+		chai.expect(that.element().text()).to.equal("Sign Out");
 	}, done);
 };

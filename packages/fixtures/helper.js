@@ -1,17 +1,19 @@
-waitUntilSuccess = function(expectation, done) {
-	done = done || function(){};
-	timeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+waitUntilSuccess = function (expectation, done) {
+	done = done || function () {
+		// empty
+	};
+	timeout = MochaWeb.timeout;
 
-	var intervalId = Meteor.setInterval(function() {
+	var intervalId = Meteor.setInterval(function () {
 		try {
 			expectation();
 		} catch (error) {
-			console.log(error);
+			// empty
 		}
 		allDone();
 	}, 100);
 
-	var timerId = Meteor.setTimeout(function() {
+	var timerId = Meteor.setTimeout(function () {
 		allDone();
 		expectation();
 	}, timeout);

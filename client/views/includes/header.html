@@ -3,7 +3,7 @@
 		<div class="navbar-header">
 			<a class="navbar-brand" href="/">Dreamgame</a>
 			<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target=".navbar-collapse">
+			        data-toggle="collapse" data-target=".navbar-collapse">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -11,13 +11,13 @@
 			</button>
 		</div>
 		<div class="navbar-collapse collapse">
-			{{#if currentUser}}
-				<ul class="nav navbar-nav">
-					<li id="hero-list"><a href="{{pathFor "heroList"}}">Heroes</a></li>
-				</ul>
-			{{/if}}
+        {{#if currentUser}}
+					<ul class="nav navbar-nav">
+						<li id="hero-list"><a href="{{pathFor "heroList"}}">Heroes</a></li>
+					</ul>
+        {{/if}}
 			<ul class="nav navbar-nav pull-right">
-				{{>atNavButton}}
+          {{>atNavButton}}
 			</ul>
 		</div>
 	</div>

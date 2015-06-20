@@ -5,14 +5,14 @@ HeroesPage = function HeroesPage() {
 HeroesPage.prototype = Object.create(BasePage.prototype);
 HeroesPage.prototype.constructor = HeroesPage;
 
-HeroesPage.prototype.shouldContain = function(expected) {
+HeroesPage.prototype.shouldContain = function (expected) {
 	var $heroes = $(".hero");
-	expect($heroes.length).toEqual(1);
+	chai.expect($heroes.length).to.equal(1, "Count");
 
 	var $hero = $heroes.first();
-	expect($hero.is(":visible")).toBeTruthy();
+	chai.expect($hero.is(":visible")).to.equal(true);
 
 	var $heroName = $hero.find(".hero-name");
-	expect($heroName.text()).toEqual(expected.name);
-	expect($heroName.attr("href")).toEqual(expected.url);
+	chai.expect($heroName.text()).to.equal(expected.name);
+	chai.expect($heroName.attr("href")).to.equal(expected.url);
 };

@@ -1,8 +1,12 @@
-Database = function Database() {};
+Database = function Database() {
+	// empty
+};
 
-Database.prototype.reset = function(done) {
-	done = done || function(){};
-	Meteor.call("reset", function(error, result) {
+Database.prototype.reset = function (done) {
+	done = done || function () {
+		// empty
+	};
+	Meteor.call("reset", function (error, result) {
 		if (error) {
 			throw new Error("Database reset failed: " + error);
 		}
@@ -11,8 +15,8 @@ Database.prototype.reset = function(done) {
 	});
 };
 
-Database.prototype.contains = function(entity) {
-	Heroes.insert(entity, function(error, _id) {
+Database.prototype.contains = function (entity) {
+	Heroes.insert(entity, function (error, _id) {
 		if (error) {
 			throw new Error("Fail to save: " + error);
 		}
@@ -21,51 +25,23 @@ Database.prototype.contains = function(entity) {
 	});
 };
 
-Database.prototype.shouldContain = function(expected) {
+Database.prototype.shouldContain = function (expected) {
 	var actual = Heroes.findOne(expected);
-	expect(actual.name).toEqual(expected.name);
+	chai.expect(actual.name).to.equal(expected.name);
 };
 
-Database.prototype.has = function(entity) {
-	return function() {
-		console.log("Check that database contains:", entity);
-		return Heroes.findOne({name: entity.name}) !== undefined;
-	};
+Database.prototype.doesNotContain = function (entity) {
+	console.log("Check that database does not contain:", entity);
+	return Heroes.findOne({name: entity.name}) === undefined;
 };
 
-Database.prototype.doesNotHave = function(entity) {
-	return function() {
-		console.log("Check that database does not contain:", entity);
-		return Heroes.findOne({name: entity.name}) === undefined;
-	};
+Database.prototype.shouldNotContain = function (expected, done) {
+	var that = this;
+	waitUntilSuccess(function() {
+		chai.expect(that.doesNotContain(expected)).to.equal(true);
+	}, done);
 };
 
-Database.prototype.shouldNotContain = function(expected, done) {
-	done = done || function(){};
-
-	var waitFor = function(condition, timeout) {
-		timeout = timeout || jasmine.DEFAULT_TIMEOUT_INTERVAL;
-
-		var intervalId = Meteor.setInterval(function() {
-			if (condition()) {
-				allDone();
-			}
-		}, 1);
-
-		var timerId = Meteor.setTimeout(function() {
-			allDone();
-		}, timeout);
-
-		function allDone() {
-			Meteor.clearInterval(intervalId);
-			Meteor.clearTimeout(timerId);
-			done();
-		}
-	};
-
-	waitFor(this.doesNotHave(expected));
-};
-
-Database.prototype.isEmpty = function() {
+Database.prototype.isEmpty = function () {
 	return Heroes.find().count() === 0;
 };
