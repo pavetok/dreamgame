@@ -1,13 +1,13 @@
-HeroesPage = function HeroesPage() {
+HeroListPage = function HeroListPage() {
 	BasePage.call(this, "/heroes");
 };
 
-HeroesPage.prototype = Object.create(BasePage.prototype);
-HeroesPage.prototype.constructor = HeroesPage;
+HeroListPage.prototype = Object.create(BasePage.prototype);
+HeroListPage.prototype.constructor = HeroListPage;
 
-HeroesPage.prototype.shouldContain = function (expected) {
+HeroListPage.prototype.shouldContain = function (expected) {
 	var $heroes = $(".hero");
-	chai.expect($heroes.length).to.equal(1, "Count");
+	chai.expect($heroes.length).to.equal(1, "User hero count");
 
 	var $hero = $heroes.first();
 	chai.expect($hero.is(":visible")).to.equal(true);

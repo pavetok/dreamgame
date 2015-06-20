@@ -19,11 +19,11 @@ if (!(typeof MochaWeb === 'undefined')) {
 				});
 			});
 
-			it("can save entity", function () {
+			it("can save entity", function (done) {
 				//when
 				database.contains(hero);
 				//then
-				database.shouldContain(hero);
+				database.shouldContain(hero, done);
 			});
 
 			it("can be reseted", function (done) {

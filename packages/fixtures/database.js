@@ -25,9 +25,12 @@ Database.prototype.contains = function (entity) {
 	});
 };
 
-Database.prototype.shouldContain = function (expected) {
-	var actual = Heroes.findOne(expected);
-	chai.expect(actual.name).to.equal(expected.name);
+Database.prototype.shouldContain = function (expected, done) {
+	waitUntilSuccess(function() {
+		var actual = Heroes.findOne({name: expected.name});
+		chai.expect(actual.name).to.equal(expected.name);
+		chai.expect(actual.url).to.equal(expected.url);
+	}, done);
 };
 
 Database.prototype.doesNotContain = function (entity) {

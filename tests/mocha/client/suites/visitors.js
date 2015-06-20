@@ -4,14 +4,14 @@ if (!(typeof MochaWeb === 'undefined')) {
 			var database;
 			var visitor;
 			var mainPage;
-			var heroesPage;
+			var heroListPage;
 			var signOutButton;
 
 			before(function () {
 				database = new Package["pavetok:fixtures"].Database();
 				visitor = new User();
-				mainPage = new MainPage("/");
-				heroesPage = new HeroesPage("/heroes");
+				mainPage = new MainPage();
+				heroListPage = new HeroListPage();
 				signOutButton = new SignOutButton();
 			});
 
@@ -27,7 +27,7 @@ if (!(typeof MochaWeb === 'undefined')) {
 				//and
 				visitor.registers();
 				//then
-				visitor.shouldSee(heroesPage);
+				visitor.shouldSee(heroListPage);
 				//and
 				visitor.shouldSee(signOutButton, done);
 			});

@@ -3,13 +3,13 @@ if (!(typeof MochaWeb === 'undefined')) {
 		describe("Hero", function () {
 			var database;
 			var user;
-			var heroesPage;
+			var heroListPage;
 			var hero;
 
 			before(function () {
 				database = new Package["pavetok:fixtures"].Database();
 				user = new User();
-				heroesPage = new HeroesPage("/heroes");
+				heroListPage = new HeroListPage();
 			});
 
 			beforeEach(function (done) {
@@ -27,9 +27,9 @@ if (!(typeof MochaWeb === 'undefined')) {
 				//given
 				database.contains(hero);
 				//when
-				user.opens(heroesPage);
+				user.opens(heroListPage);
 				//then
-				heroesPage.shouldContain(hero)
+				heroListPage.shouldContain(hero)
 			});
 		});
 	});

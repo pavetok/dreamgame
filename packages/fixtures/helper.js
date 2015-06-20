@@ -1,8 +1,8 @@
-waitUntilSuccess = function (expectation, done) {
+waitUntilSuccess = function (expectation, done, timeout) {
+	timeout = timeout || 2000;
 	done = done || function () {
 		// empty
 	};
-	timeout = MochaWeb.timeout;
 
 	var intervalId = Meteor.setInterval(function () {
 		try {
