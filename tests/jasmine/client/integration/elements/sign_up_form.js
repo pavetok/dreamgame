@@ -1,5 +1,5 @@
 SignUpForm = function SignUpForm() {
-	Element.call(this, "#login-dropdown-list");
+	Element.call(this, "#at-pwd-form");
 };
 
 SignUpForm.prototype = Object.create(Element.prototype);
@@ -12,15 +12,16 @@ SignUpForm.prototype.create = function(visitor) {
 };
 
 SignUpForm.prototype.open = function() {
-	this.self().click();
-	$("#signup-link").click();
+	$("#at-nav-button").click();
+	$("at-signUp").click();
 };
 
 SignUpForm.prototype.fill = function(visitor) {
-	$("#login-email").val(visitor.email);
-	$("#login-password").val(visitor.password);
+	$("#at-field-email").val(visitor.email);
+	$("#at-field-password").val(visitor.password);
+	$("at-field-password_again").val(visitor.password);
 };
 
 SignUpForm.prototype.submit = function() {
-	$("#login-buttons-password").click();
+	$("#at-btn").click();
 };

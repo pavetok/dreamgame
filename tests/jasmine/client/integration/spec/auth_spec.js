@@ -3,12 +3,14 @@ describe("Visitor", function() {
     var visitor;
     var mainPage;
     var heroesPage;
+    var signOutButton;
 
     beforeAll(function() {
         database = new Package["pavetok:fixtures"].Database();
         visitor = new User();
         mainPage = new MainPage("/");
-        heroesPage = new HeroesPage("/heroes")
+        heroesPage = new HeroesPage("/heroes");
+        signOutButton = new SignOutButton();
     });
 
     beforeEach(function(done) {
@@ -17,13 +19,14 @@ describe("Visitor", function() {
 
     it("should be registered", function() {
         //given
-        visitor.withEmail("email1@domain.com").withPassword("password1");
+        visitor.withEmail("email1@domain.com").withPass("password1");
         //when
         visitor.opens(mainPage);
         //and
         visitor.registers();
         //then
-        //todo: user should see profile link
         visitor.shouldSee(heroesPage);
+        //and
+        visitor.shouldSee(signOutButton);
     });
 });

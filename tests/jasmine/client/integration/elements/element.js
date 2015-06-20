@@ -2,8 +2,14 @@ Element = function Element(locator) {
 	this.locator = locator;
 };
 
+Element.prototype.element = function() {
+	return $(this.locator);
+};
+
 Element.prototype.shouldBeVisible = function() {
-	expect($(this.locator).is(":visible")).toBeTruthy();
+	expect(this.element().is(":visible"))
+			.toBeTruthy("Element<" + this.locator + "> should be visible, but does not",
+			"\nActual" + this.element().parent().html().trim());
 };
 
 Element.prototype.shouldBeVisibleWithChildren = function() {
@@ -13,8 +19,4 @@ Element.prototype.shouldBeVisibleWithChildren = function() {
 			this[property].shouldBeVisible();
 		}
 	}
-};
-
-Element.prototype.self = function() {
-	return $(this.locator);
 };

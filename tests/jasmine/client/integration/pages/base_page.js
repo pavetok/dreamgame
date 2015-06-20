@@ -1,11 +1,11 @@
-BasePage = function BasePage(url) {
+BasePage = function BasePage(path) {
     Element.call(this, "body");
-    this.url = url;
+    this.path = path;
 };
 
 BasePage.prototype = Object.create(Element.prototype);
 BasePage.prototype.constructor = BasePage;
 
 BasePage.prototype.shouldBeVisible = function() {
-  expect(window.location.href).toMatch(this.url);
+  expect(window.location.href).toMatch(this.path);
 };

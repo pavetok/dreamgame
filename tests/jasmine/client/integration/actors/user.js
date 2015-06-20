@@ -3,7 +3,7 @@ User = function User() {
 };
 
 User.prototype.opens = function(page) {
-	Router.go(page.url);
+	Router.go(page.path);
 	this.currentPage = page;
 };
 
@@ -18,7 +18,7 @@ User.prototype.withEmail = function(email) {
 	return this;
 };
 
-User.prototype.withPassword = function(password) {
+User.prototype.withPass = function(password) {
 	this.password = password;
 	return this;
 };
