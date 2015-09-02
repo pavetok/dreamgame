@@ -1,11 +1,11 @@
 if (!(typeof MochaWeb === 'undefined')) {
 	MochaWeb.testOnly(function () {
-		describe("Database", function () {
+		describe('Database', function () {
 			var database;
 			var hero;
 
 			before(function () {
-				database = new Package["pavetok:fixtures"].Database();
+				database = new Package['pavetok:fixtures'].Database();
 			});
 
 			beforeEach(function (done) {
@@ -14,19 +14,19 @@ if (!(typeof MochaWeb === 'undefined')) {
 
 			beforeEach(function () {
 				hero = new Hero({
-					name: "hero1",
-					url: "url1"
+					name: 'hero1',
+					url: 'url1'
 				});
 			});
 
-			it("can save entity", function (done) {
+			it('can save entity', function (done) {
 				//when
 				database.contains(hero);
 				//then
 				database.shouldContain(hero, done);
 			});
 
-			it("can be reseted", function (done) {
+			it('can be reseted', function (done) {
 				//and
 				database.contains(hero);
 				//when

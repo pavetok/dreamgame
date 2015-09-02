@@ -1,5 +1,5 @@
 MainPage = function MainPage() {
-	BasePage.call(this, "/");
+	BasePage.call(this, '/');
 	// elements
 	this.signUpForm = new SignUpForm();
 };

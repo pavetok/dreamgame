@@ -1,7 +1,7 @@
-waitUntilSuccess = Package["pavetok:fixtures"].waitUntilSuccess;
+waitUntilSuccess = Package['pavetok:fixtures'].waitUntilSuccess;
 
 BasePage = function BasePage(path) {
-	Element.call(this, "body");
+	Element.call(this, 'body');
 	this.path = path;
 };
 

@@ -1,13 +1,13 @@
 if (!(typeof MochaWeb === 'undefined')) {
 	MochaWeb.testOnly(function () {
-		describe("Hero", function () {
+		describe('Hero', function () {
 			var database;
 			var user;
 			var heroListPage;
 			var hero;
 
 			before(function () {
-				database = new Package["pavetok:fixtures"].Database();
+				database = new Package['pavetok:fixtures'].Database();
 				user = new User();
 				heroListPage = new HeroListPage();
 			});
@@ -18,12 +18,12 @@ if (!(typeof MochaWeb === 'undefined')) {
 
 			beforeEach(function () {
 				hero = new Hero({
-					name: "hero1",
-					url: "url1"
+					name: 'hero1',
+					url: 'url1'
 				});
 			});
 
-			it("should be presented on the page", function () {
+			it('should be presented on the page', function () {
 				//given
 				database.contains(hero);
 				//when

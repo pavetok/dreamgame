@@ -6,11 +6,11 @@ Database.prototype.reset = function (done) {
 	done = done || function () {
 		// empty
 	};
-	Meteor.call("reset", function (error, result) {
+	Meteor.call('reset', function (error, result) {
 		if (error) {
-			throw new Error("Database reset failed: " + error);
+			throw new Error('Database reset failed: ' + error);
 		}
-		console.log("Database reseted");
+		console.log('Database reseted');
 		done();
 	});
 };
@@ -18,10 +18,10 @@ Database.prototype.reset = function (done) {
 Database.prototype.contains = function (entity) {
 	Heroes.insert(entity, function (error, _id) {
 		if (error) {
-			throw new Error("Fail to save: " + error);
+			throw new Error('Fail to save: ' + error);
 		}
 		entity._id = _id;
-		console.log("Saved to database:", entity)
+		console.log('Saved to database:', entity)
 	});
 };
 
@@ -34,7 +34,7 @@ Database.prototype.shouldContain = function (expected, done) {
 };
 
 Database.prototype.doesNotContain = function (entity) {
-	console.log("Check that database does not contain:", entity);
+	console.log('Check that database does not contain:', entity);
 	return Heroes.findOne({name: entity.name}) === undefined;
 };
 
