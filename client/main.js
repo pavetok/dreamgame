@@ -1,7 +1,7 @@
 AccountsTemplates.configureRoute('signIn', {
-	redirect: '/heroes'
+  redirect: '/heroes',
 });
 
 AccountsTemplates.configureRoute('signUp', {
-	redirect: '/heroes'
+  redirect: '/heroes',
 });

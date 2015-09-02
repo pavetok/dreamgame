@@ -1,3 +1,3 @@
-Tinytest.add('example', function (test) {
-	test.equal(true, true);
+Tinytest.add('example', function(test) {
+  test.equal(true, true);
 });

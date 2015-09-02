@@ -1,6 +1,6 @@
 Meteor.methods({
-	reset: function () {
-		Heroes.remove({});
-		Meteor.users.remove({});
-	}
+  reset: function() {
+    Heroes.remove({});
+    Meteor.users.remove({});
+  }
 });

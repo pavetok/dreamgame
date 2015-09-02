@@ -1,7 +1,7 @@
 MainPage = function MainPage() {
-	BasePage.call(this, '/');
-	// elements
-	this.signUpForm = new SignUpForm();
+  BasePage.call(this, '/');
+  // elements
+  this.signUpForm = new SignUpForm();
 };
 
 MainPage.prototype = Object.create(BasePage.prototype);
