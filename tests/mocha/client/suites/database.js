@@ -1,12 +1,9 @@
+/* eslint func-names: 0 */
+
 if (!(typeof MochaWeb === 'undefined')) {
   MochaWeb.testOnly(function() {
     describe('Database', function() {
-      var database;
-      var hero;
-
-      before(function() {
-        database = new Package['pavetok:fixtures'].Database();
-      });
+      const database = new Package['pavetok:fixtures'].Database();
 
       beforeEach(function(done) {
         database.reset(done);
@@ -20,18 +17,18 @@ if (!(typeof MochaWeb === 'undefined')) {
       });
 
       it('can save entity', function(done) {
-        //when
+        // when
         database.contains(hero);
-        //then
+        // then
         database.shouldContain(hero, done);
       });
 
       it('can be reseted', function(done) {
-        //and
+        // and
         database.contains(hero);
-        //when
+        // when
         database.reset();
-        //then
+        // then
         database.shouldNotContain(hero, done);
       });
     });

@@ -1,20 +1,20 @@
 waitUntilSuccess = Package['pavetok:fixtures'].waitUntilSuccess;
 
-Element = function Element(locator) {
+Jelement = function Jelement(locator) {
   this.locator = locator;
 };
 
-Element.prototype.element = function() {
+Jelement.prototype.element = function element() {
   return $(this.locator);
 };
 
-Element.prototype.isVisible = function() {
+Jelement.prototype.isVisible = function isVisible() {
   return this.element().is(':visible');
 };
 
-Element.prototype.shouldBeVisible = function(done) {
-  var element = this;
-  waitUntilSuccess(function() {
+Jelement.prototype.shouldBeVisible = function shouldBeVisible(done) {
+  const element = this;
+  waitUntilSuccess(function assert() {
     chai.expect(element.isVisible()).to.equal(true, 'Element<' + element.locator + '> should be visible, but does not');
   }, done);
 };

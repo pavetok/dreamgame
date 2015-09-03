@@ -1,16 +1,11 @@
+/* eslint func-names: 0 */
+
 if (!(typeof MochaWeb === 'undefined')) {
   MochaWeb.testOnly(function() {
     describe('Hero', function() {
-      var database;
-      var user;
-      var heroListPage;
-      var hero;
-
-      before(function() {
-        database = new Package['pavetok:fixtures'].Database();
-        user = new User();
-        heroListPage = new HeroListPage();
-      });
+      const database = new Package['pavetok:fixtures'].Database();
+      const user = new User();
+      const heroListPage = new HeroListPage();
 
       beforeEach(function(done) {
         database.reset(done);
@@ -24,11 +19,11 @@ if (!(typeof MochaWeb === 'undefined')) {
       });
 
       it('should be presented on the page', function() {
-        //given
+        // given
         database.contains(hero);
-        //when
+        // when
         user.opens(heroListPage);
-        //then
+        // then
         heroListPage.shouldContain(hero);
       });
     });

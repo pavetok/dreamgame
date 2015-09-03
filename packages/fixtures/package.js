@@ -1,9 +1,11 @@
+/* eslint func-names: 0 */
+
 Package.describe({
   name: 'pavetok:fixtures',
   summary: 'Useful fixtures for tests',
   version: '0.0.1',
   git: '',
-  debugOnly: true
+  debugOnly: true,
 });
 
 Package.onUse(function(api) {

@@ -1,3 +1,3 @@
-Meteor.publish('heroes', function() {
+Meteor.publish('heroes', function all() {
   return Heroes.find();
 });

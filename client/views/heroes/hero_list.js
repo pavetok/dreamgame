@@ -1,5 +1,5 @@
 Template.heroList.helpers({
-  heroes: function() {
+  heroes: function heroes() {
     return Heroes.find();
   },
 });

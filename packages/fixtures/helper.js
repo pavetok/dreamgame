@@ -1,19 +1,21 @@
-waitUntilSuccess = function(expectation, done, timeout) {
+/* eslint no-console: 0, no-param-reassign: 0 */
+
+waitUntilSuccess = function waitUntilSuccess(expectation, done, timeout) {
   timeout = timeout || 2000;
-  done = done || function() {
+  done = done || function fake() {
     // empty
   };
 
-  var intervalId = Meteor.setInterval(function() {
+  const intervalId = Meteor.setInterval(function setIntervalCallback() {
     try {
       expectation();
     } catch (error) {
-      // empty
+      console.log(error);
     }
     allDone();
   }, 100);
 
-  var timerId = Meteor.setTimeout(function() {
+  const timerId = Meteor.setTimeout(function setTimeoutCallback() {
     allDone();
     expectation();
   }, timeout);

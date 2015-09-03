@@ -1,27 +1,27 @@
 SignUpForm = function SignUpForm() {
-  Element.call(this, '#at-pwd-form');
+  Jelement.call(this, '#at-pwd-form');
 };
 
-SignUpForm.prototype = Object.create(Element.prototype);
+SignUpForm.prototype = Object.create(Jelement.prototype);
 SignUpForm.prototype.constructor = SignUpForm;
 
-SignUpForm.prototype.create = function(visitor) {
+SignUpForm.prototype.create = function create(visitor) {
   this.open();
   this.fill(visitor);
   this.submit();
 };
 
-SignUpForm.prototype.open = function() {
+SignUpForm.prototype.open = function open() {
   $('#at-nav-button').click();
   $('#at-signUp').click();
 };
 
-SignUpForm.prototype.fill = function(visitor) {
+SignUpForm.prototype.fill = function fill(visitor) {
   $('#at-field-email').val(visitor.email);
   $('#at-field-password').val(visitor.password);
   $('#at-field-password_again').val(visitor.password);
 };
 
-SignUpForm.prototype.submit = function() {
+SignUpForm.prototype.submit = function submit() {
   $('#at-btn').click();
 };
