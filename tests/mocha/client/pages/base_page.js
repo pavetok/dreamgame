@@ -1,4 +1,4 @@
-waitUntilSuccess = Package['pavetok:fixtures'].waitUntilSuccess;
+const waitUntilSuccess = Package['pavetok:fixtures'].waitUntilSuccess;
 
 BasePage = function BasePage(path) {
   Jelement.call(this, 'body');

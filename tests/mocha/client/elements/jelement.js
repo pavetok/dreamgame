@@ -1,4 +1,4 @@
-waitUntilSuccess = Package['pavetok:fixtures'].waitUntilSuccess;
+const waitUntilSuccess = Package['pavetok:fixtures'].waitUntilSuccess;
 
 Jelement = function Jelement(locator) {
   this.locator = locator;
