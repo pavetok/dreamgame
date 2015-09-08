@@ -10,8 +10,8 @@ accounts-password
 underscore
 iron:router
 sacha:spin
-robertlowe:meteor-phaser
 pavetok:fixtures
 aldeed:collection2
 useraccounts:bootstrap
 mike:mocha
+useraccounts:iron-routing
