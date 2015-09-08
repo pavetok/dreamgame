@@ -17,13 +17,13 @@ MochaWeb.testOnly(function() {
       });
     });
 
-    it('should be presented on the page', function() {
+    it('should be presented on the page', function(done) {
       // given
       database.contains(hero);
       // when
       user.opens(heroListPage);
       // then
-      heroListPage.shouldContain(hero);
+      heroListPage.shouldContain(hero, done);
     });
   });
 });
