@@ -1,28 +1,32 @@
-/* eslint no-console: 0, no-param-reassign: 0 */
+/* eslint no-console: 0, no-param-reassign: 0, no-empty: 0 */
 
-waitUntilSuccess = function waitUntilSuccess(expectation, done, timeout) {
-  timeout = timeout || 2000;
+waitUntilSuccess = function waitUntilSuccess(assertion, done, timeout) {
+  timeout = timeout || 1500;
   done = done || function fake() {
-    // empty
+    // do nothing
   };
 
   const intervalId = Meteor.setInterval(function setIntervalCallback() {
     try {
-      expectation();
+      assertion();
+      complete();
     } catch (error) {
-      console.log(error);
+      // do nothing
     }
-    allDone();
   }, 100);
 
   const timerId = Meteor.setTimeout(function setTimeoutCallback() {
-    allDone();
-    expectation();
+    complete();
   }, timeout);
 
-  function allDone() {
+  function complete() {
     Meteor.clearInterval(intervalId);
     Meteor.clearTimeout(timerId);
-    done();
+    try {
+      assertion();
+      done();
+    } catch (error) {
+      done(error);
+    }
   }
 };
