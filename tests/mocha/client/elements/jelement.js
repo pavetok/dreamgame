@@ -4,17 +4,35 @@ Jelement = function Jelement(locator) {
   this.locator = locator;
 };
 
-Jelement.prototype.element = function element() {
-  return $(this.locator);
+Jelement.prototype.click = function click() {
+  const self = this;
+  function waitAndClick() {
+    if (!$(self.locator).size()) {
+      window.requestAnimationFrame(waitAndClick);
+    }
+    $(self.locator).click();
+  }
+  waitAndClick();
+};
+
+Jelement.prototype.set = function set(value) {
+  const self = this;
+  function waitAndSet() {
+    if (!$(self.locator).size()) {
+      window.requestAnimationFrame(waitAndSet);
+    }
+    $(self.locator).val(value);
+  }
+  waitAndSet();
 };
 
 Jelement.prototype.isVisible = function isVisible() {
-  return this.element().is(':visible');
+  return $(this.locator).is(':visible');
 };
 
 Jelement.prototype.shouldBeVisible = function shouldBeVisible(done) {
-  const element = this;
+  const self = this;
   waitUntilSuccess(function assert() {
-    chai.expect(element.isVisible()).to.equal(true, 'Element<' + element.locator + '> should be visible, but does not');
+    chai.expect(self.isVisible()).to.equal(true, 'Element<' + self.locator + '> should be visible, but does not');
   }, done);
 };

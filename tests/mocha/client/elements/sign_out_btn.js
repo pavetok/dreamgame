@@ -11,6 +11,6 @@ SignOutButton.prototype.shouldBeVisible = function shouldBeVisible(done) {
   const self = this;
   Jelement.prototype.shouldBeVisible.call(self);
   waitUntilSuccess(function assert() {
-    chai.expect(self.element().text()).to.equal('Sign Out');
+    chai.expect($(self.locator).text()).to.equal('Sign Out');
   }, done);
 };
