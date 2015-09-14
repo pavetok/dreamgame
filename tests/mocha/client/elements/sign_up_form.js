@@ -5,7 +5,7 @@ SignUpForm = function SignUpForm() {
   this.emailField = new Jelement('#at-field-email');
   this.passwordField = new Jelement('#at-field-password');
   this.passwordAgain = new Jelement('#at-field-password_again');
-  this.submitButton = new Jelement('#at-btn');
+  this.submitButton = new Jelement('button:contains("Register")');
 };
 
 SignUpForm.prototype = Object.create(Jelement.prototype);
