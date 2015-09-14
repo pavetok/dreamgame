@@ -6,29 +6,32 @@ Database = function Database() {
 
 Database.prototype.reset = function reset(done) {
   done = done || function fake() {
-    // empty
-  };
+      };
   Meteor.call('reset', function resetCallback(error) {
     if (error) {
-      throw new Error('Database reset failed: ' + error);
+      done(error);
     }
-    console.log('Database reseted');
+    console.log('Database reseted.');
+    done();
+  });
+};
+
+Database.prototype.toDefault = function toDefault(done) {
+  Meteor.call('toDefault', function toDefaultCallback(error) {
+    if (error) {
+      done(error);
+    }
     done();
   });
 };
 
 Database.prototype.contains = function contains(entity) {
-  Heroes.insert(entity, function cb(error, _id) {
-    if (error) {
-      throw new Error('Fail to save: ' + error);
-    }
-    entity._id = _id;
-    console.log('Saved to database:', entity);
-  });
+  entity.save();
+  console.log('Saved to database:', entity);
 };
 
 Database.prototype.shouldContain = function shouldContain(expected, done) {
-  waitUntilSuccess(function cb() {
+  waitUntilSuccess(function assert() {
     const actual = Heroes.findOne({name: expected.name});
     chai.expect(actual.name).to.equal(expected.name);
     chai.expect(actual.url).to.equal(expected.url);
@@ -42,7 +45,7 @@ Database.prototype.doesNotContain = function doesNotContain(entity) {
 
 Database.prototype.shouldNotContain = function shouldNotContain(expected, done) {
   const that = this;
-  waitUntilSuccess(function cb() {
+  waitUntilSuccess(function assert() {
     chai.expect(that.doesNotContain(expected)).to.equal(true);
   }, done);
 };

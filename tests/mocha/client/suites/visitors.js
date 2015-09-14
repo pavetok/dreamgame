@@ -14,7 +14,7 @@ MochaWeb.testOnly(function() {
 
     it('should be registered', function(done) {
       // given
-      visitor.withEmail('email1@domain.com').withPass('password1');
+      visitor.withEmail('email@domain.com').withPass('password');
       // when
       visitor.opens(mainPage);
       // and
