@@ -6,6 +6,7 @@ MochaWeb.testOnly(function() {
     const user = new User().withEmail('email@domain.com').withPass('password');
     const mainPage = new MainPage();
     const heroListPage = new HeroListPage();
+    const waitUntilSuccess = Package['pavetok:fixtures'].waitUntilSuccess;
 
     beforeEach(function(done) {
       database.toDefault(done);
@@ -16,11 +17,17 @@ MochaWeb.testOnly(function() {
       user.signIn();
     });
 
+    beforeEach(function (done) {
+      waitUntilSuccess(function assert() {
+        chai.expect(Meteor.userId()).to.exist;
+      }, done);
+    });
+
     beforeEach(function() {
       hero = new Hero({
         name: 'hero1',
         url: 'url1',
-        user: Meteor.userId(),
+        userId: Meteor.userId(),
       });
     });
 

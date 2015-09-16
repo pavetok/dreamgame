@@ -12,6 +12,7 @@ MochaWeb.testOnly(function() {
       hero = new Hero({
         name: 'hero1',
         url: 'url1',
+        userId: 'user1',
       });
     });
 

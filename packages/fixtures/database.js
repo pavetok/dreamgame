@@ -27,12 +27,12 @@ Database.prototype.toDefault = function toDefault(done) {
 
 Database.prototype.contains = function contains(entity) {
   entity.save();
-  console.log('Saved to database:', entity);
 };
 
 Database.prototype.shouldContain = function shouldContain(expected, done) {
   waitUntilSuccess(function assert() {
-    const actual = Heroes.findOne({name: expected.name});
+    const actual = Heroes.findOne(expected._id);
+    chai.expect(actual).to.exist;
     chai.expect(actual.name).to.equal(expected.name);
     chai.expect(actual.url).to.equal(expected.url);
   }, done);

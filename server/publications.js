@@ -1,3 +1,3 @@
 Meteor.publish('heroes', function all() {
-  return Heroes.find({user: this.userId});
+  return Heroes.find({userId: this.userId});
 });
