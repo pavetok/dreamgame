@@ -1,10 +1,9 @@
 /* eslint func-names: 0 */
 
 Package.describe({
-  name: 'pavetok:fixtures',
+  name: 'fixtures',
   summary: 'Useful fixtures for tests',
   version: '0.0.1',
-  git: '',
   debugOnly: true,
 });
 
@@ -17,10 +16,4 @@ Package.onUse(function(api) {
 
   api.export('Database');
   api.export('waitUntilSuccess');
-});
-
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('pavetok:fixtures');
-  api.addFiles('tests.js');
 });

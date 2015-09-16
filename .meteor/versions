@@ -17,6 +17,7 @@ deps@1.0.7
 ejson@1.0.6
 email@1.0.6
 fastclick@1.0.3
+fixtures@0.0.1
 geojson-utils@1.0.3
 html-tools@1.0.4
 htmljs@1.0.4
@@ -49,7 +50,6 @@ npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ordered-dict@1.0.3
 package-version-parser@3.0.3
-pavetok:fixtures@0.0.1
 practicalmeteor:chai@2.1.0_1
 practicalmeteor:loglevel@1.2.0_2
 random@1.0.3

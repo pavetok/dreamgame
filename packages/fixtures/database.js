@@ -4,20 +4,19 @@ Database = function Database() {
   // empty
 };
 
-Database.prototype.reset = function reset(done) {
+Database.prototype.clear = function clear(done) {
   done = done || function fake() {
       };
-  Meteor.call('reset', function resetCallback(error) {
+  Meteor.call('clearDb', function clearCallback(error) {
     if (error) {
       done(error);
     }
-    console.log('Database reseted.');
     done();
   });
 };
 
-Database.prototype.toDefault = function toDefault(done) {
-  Meteor.call('toDefault', function toDefaultCallback(error) {
+Database.prototype.reset = function reset(done) {
+  Meteor.call('resetDb', function resetCallback(error) {
     if (error) {
       done(error);
     }
@@ -48,8 +47,4 @@ Database.prototype.shouldNotContain = function shouldNotContain(expected, done) 
   waitUntilSuccess(function assert() {
     chai.expect(that.doesNotContain(expected)).to.equal(true);
   }, done);
-};
-
-Database.prototype.isEmpty = function isEmpty() {
-  return Heroes.find().count() === 0;
 };

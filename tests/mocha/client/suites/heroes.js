@@ -1,15 +1,16 @@
 /* eslint func-names: 0 */
+const Database = Package.fixtures.Database;
+const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
 
 MochaWeb.testOnly(function() {
   describe('Hero', function() {
-    const database = new Package['pavetok:fixtures'].Database();
+    const database = new Database();
     const user = new User().withEmail('email@domain.com').withPass('password');
     const mainPage = new MainPage();
     const heroListPage = new HeroListPage();
-    const waitUntilSuccess = Package['pavetok:fixtures'].waitUntilSuccess;
 
     beforeEach(function(done) {
-      database.toDefault(done);
+      database.reset(done);
     });
 
     beforeEach(function () {

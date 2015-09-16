@@ -1,11 +1,11 @@
 Meteor.methods({
-  reset: function reset() {
+  clearDb: function reset() {
     Heroes.remove({});
     Meteor.users.remove({});
   },
 
-  toDefault: function toDefault() {
-    Meteor.call('reset');
+  resetDb: function reset() {
+    Meteor.call('clearDb');
     Accounts.createUser({
       username: 'username',
       email: 'email@domain.com',

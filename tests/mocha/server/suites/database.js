@@ -1,11 +1,12 @@
 /* eslint func-names: 0 */
+const Database = Package.fixtures.Database;
 
 MochaWeb.testOnly(function() {
   describe('Database', function() {
-    const database = new Package['pavetok:fixtures'].Database();
+    const database = new Database();
 
     beforeEach(function(done) {
-      database.reset(done);
+      database.clear(done);
     });
 
     beforeEach(function() {
@@ -27,7 +28,7 @@ MochaWeb.testOnly(function() {
       // and
       database.contains(hero);
       // when
-      database.reset();
+      database.clear();
       // then
       database.shouldNotContain(hero, done);
     });

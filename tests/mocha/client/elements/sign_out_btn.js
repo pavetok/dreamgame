@@ -1,4 +1,4 @@
-const waitUntilSuccess = Package['pavetok:fixtures'].waitUntilSuccess;
+const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
 
 SignOutButton = function SignOutButton() {
   Jelement.call(this, '#at-nav-button');

@@ -1,18 +1,19 @@
 /* eslint func-names: 0 */
+const Database = Package.fixtures.Database;
 
 MochaWeb.testOnly(function() {
   describe('Visitor', function() {
-    const database = new Package['pavetok:fixtures'].Database();
+    const database = new Database();
     const visitor = new User();
     const mainPage = new MainPage();
     const heroListPage = new HeroListPage();
     const signOutButton = new SignOutButton();
 
     beforeEach(function(done) {
-      database.reset(done);
+      database.clear(done);
     });
 
-    it('should be registered', function(done) {
+    it('can sign up', function (done) {
       // given
       visitor.withEmail('email@domain.com').withPass('password');
       // when
