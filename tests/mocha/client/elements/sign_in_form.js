@@ -1,3 +1,8 @@
+/**
+ * @class
+ * @constructor
+ * @extends {Jelement}
+ */
 SignInForm = function SignInForm() {
   Jelement.call(this, '#at-pwd-form');
   this.navButton = new Jelement('#at-nav-button');

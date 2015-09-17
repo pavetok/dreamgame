@@ -1,5 +1,8 @@
 /* eslint no-console: 0, no-param-reassign: 0 */
 
+/**
+ * @constructor
+ */
 Database = function Database() {
   // empty
 };

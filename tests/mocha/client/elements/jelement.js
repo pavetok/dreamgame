@@ -1,5 +1,9 @@
 const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
 
+/**
+ * @param {string} selector
+ * @constructor
+ */
 Jelement = function Jelement(selector) {
   this.selector = selector;
 };

@@ -1,5 +1,10 @@
 const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
 
+/**
+ * @param {string} path
+ * @constructor
+ * @extends {Jelement}
+ */
 BasePage = function BasePage(path) {
   Jelement.call(this, 'body');
   this.path = path;

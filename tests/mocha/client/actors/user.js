@@ -1,12 +1,22 @@
+/**
+ * @constructor
+ */
 User = function User() {
   this.currentPage = null;
 };
 
+/**
+ * @param {BasePage} page
+ */
 User.prototype.opens = function opens(page) {
   Router.go(page.path);
   this.currentPage = page;
 };
 
+/**
+ * @param {Jelement} element
+ * @param {function} done
+ */
 User.prototype.shouldSee = function shouldSee(element, done) {
   element.shouldBeVisible(done);
 };

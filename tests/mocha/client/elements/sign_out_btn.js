@@ -1,5 +1,9 @@
 const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
 
+/**
+ * @constructor
+ * @extends {Jelement}
+ */
 SignOutButton = function SignOutButton() {
   Jelement.call(this, '#at-nav-button');
 };

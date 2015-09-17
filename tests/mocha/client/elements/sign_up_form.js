@@ -1,3 +1,7 @@
+/**
+ * @constructor
+ * @extends {Jelement}
+ */
 SignUpForm = function SignUpForm() {
   Jelement.call(this, '#at-pwd-form');
   this.navButton = new Jelement('#at-nav-button');
@@ -11,6 +15,9 @@ SignUpForm = function SignUpForm() {
 SignUpForm.prototype = Object.create(Jelement.prototype);
 SignUpForm.prototype.constructor = SignUpForm;
 
+/**
+ * @param {User} visitor
+ */
 SignUpForm.prototype.create = function create(visitor) {
   this.open();
   this.fill(visitor);
@@ -22,6 +29,9 @@ SignUpForm.prototype.open = function open() {
   this.signUpLink.click();
 };
 
+/**
+ * @param {User} visitor
+ */
 SignUpForm.prototype.fill = function fill(visitor) {
   this.emailField.set(visitor.email);
   this.passwordField.set(visitor.password);

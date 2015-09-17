@@ -1,3 +1,7 @@
+/**
+ * @constructor
+ * @extends {BasePage}
+ */
 MainPage = function MainPage() {
   BasePage.call(this, '/');
   // elements

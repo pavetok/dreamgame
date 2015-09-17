@@ -1,5 +1,9 @@
 const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
 
+/**
+ * @constructor
+ * @extends {BasePage}
+ */
 HeroListPage = function HeroListPage() {
   BasePage.call(this, '/heroes');
 };

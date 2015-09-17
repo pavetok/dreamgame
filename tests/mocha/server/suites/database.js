@@ -25,7 +25,7 @@ MochaWeb.testOnly(function() {
     });
 
     it('can be reseted', function(done) {
-      // and
+      // given
       database.contains(hero);
       // when
       database.clear();
