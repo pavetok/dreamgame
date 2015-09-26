@@ -1,10 +1,10 @@
 Meteor.methods({
-  clearDb: function reset() {
+  clearDb() {
     Heroes.remove({});
     Meteor.users.remove({});
   },
 
-  resetDb: function reset() {
+  resetDb() {
     Meteor.call('clearDb');
     Accounts.createUser({
       username: 'username',

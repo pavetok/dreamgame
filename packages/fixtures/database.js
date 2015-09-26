@@ -6,7 +6,7 @@
 Database = class Database {
 
   clear(done) {
-    done = done || function () {
+    done = done || function fake() {
         };
     Meteor.call('clearDb', (error) => {
       if (error) {
