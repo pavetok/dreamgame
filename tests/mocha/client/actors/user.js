@@ -1,54 +1,56 @@
 /**
  * @constructor
  */
-User = function User() {
-  this.currentPage = null;
-};
+User = class User {
+  constructor() {
+    this.currentPage = null;
+  }
 
-/**
- * @param {BasePage} page
- */
-User.prototype.opens = function opens(page) {
-  Router.go(page.path);
-  this.currentPage = page;
-};
+  /**
+   * @param {BasePage} page
+   */
+  opens(page) {
+    Router.go(page.path);
+    this.currentPage = page;
+  }
 
-/**
- * @param {Jelement} element
- * @param {function} done
- */
-User.prototype.shouldSee = function shouldSee(element, done) {
-  element.shouldBeVisible(done);
-};
+  /**
+   * @param {Jelement} element
+   * @param {function} done
+   */
+  shouldSee(element, done) {
+    element.shouldBeVisible(done);
+  }
 
-User.prototype.withUsername = function withUsername(username) {
-  this.username = username;
-  return this;
-};
+  withUsername(username) {
+    this.username = username;
+    return this;
+  }
 
-User.prototype.withEmail = function withEmail(email) {
-  this.email = email;
-  return this;
-};
+  withEmail(email) {
+    this.email = email;
+    return this;
+  }
 
-User.prototype.withPass = function withPass(password) {
-  this.password = password;
-  return this;
-};
+  withPass(password) {
+    this.password = password;
+    return this;
+  }
 
-User.prototype.registers = function registers() {
-  this.currentPage.signUpForm.create(this);
-};
+  registers() {
+    this.currentPage.signUpForm.create(this);
+  }
 
-User.prototype.signIn = function signIn() {
-  this.currentPage.signInForm.signIn(this);
-};
+  signIn() {
+    this.currentPage.signInForm.signIn(this);
+  }
 
-User.prototype.login = function login(done) {
-  Meteor.loginWithPassword(this.username || this.email, this.password, function loginCallback(error) {
-    if (error) {
-      done(error);
-    }
-    done();
-  });
+  login(done) {
+    Meteor.loginWithPassword(this.username || this.email, this.password, function loginCallback(error) {
+      if (error) {
+        done(error);
+      }
+      done();
+    });
+  }
 };

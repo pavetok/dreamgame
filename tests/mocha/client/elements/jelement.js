@@ -4,39 +4,45 @@ const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
  * @param {string} selector
  * @constructor
  */
-Jelement = function Jelement(selector) {
-  this.selector = selector;
-};
-
-Jelement.prototype.click = function click() {
-  const self = this;
-  function waitAndClick() {
-    if (!$(self.selector).size()) {
-      window.requestAnimationFrame(waitAndClick);
-    }
-    $(self.selector).click();
+Jelement = class Jelement {
+  constructor(selector) {
+    this.selector = selector;
   }
-  waitAndClick();
-};
 
-Jelement.prototype.set = function set(value) {
-  const self = this;
-  function waitAndSet() {
-    if (!$(self.selector).size()) {
-      window.requestAnimationFrame(waitAndSet);
+  click() {
+    const self = this;
+
+    function waitAndClick() {
+      if (!$(self.selector).size()) {
+        window.requestAnimationFrame(waitAndClick);
+      }
+      $(self.selector).click();
     }
-    $(self.selector).val(value);
+
+    waitAndClick();
   }
-  waitAndSet();
-};
 
-Jelement.prototype.isVisible = function isVisible() {
-  return $(this.selector).is(':visible');
-};
+  set(value) {
+    const self = this;
 
-Jelement.prototype.shouldBeVisible = function shouldBeVisible(done) {
-  const self = this;
-  waitUntilSuccess(function assert() {
-    chai.expect(self.isVisible()).to.equal(true, 'Element<' + self.selector + '> should be visible, but does not');
-  }, done);
+    function waitAndSet() {
+      if (!$(self.selector).size()) {
+        window.requestAnimationFrame(waitAndSet);
+      }
+      $(self.selector).val(value);
+    }
+
+    waitAndSet();
+  }
+
+  isVisible() {
+    return $(this.selector).is(':visible');
+  }
+
+  shouldBeVisible(done) {
+    const self = this;
+    waitUntilSuccess(function assert() {
+      chai.expect(self.isVisible()).to.equal(true, 'Element<' + self.selector + '> should be visible, but does not');
+    }, done);
+  }
 };
