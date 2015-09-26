@@ -8,7 +8,9 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.1.0.2');
+  api.versionsFrom('1.2.0.1');
+
+  api.use('ecmascript');
 
   api.addFiles('fixtures.js', 'server');
   api.addFiles('database.js');

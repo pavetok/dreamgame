@@ -13,7 +13,6 @@ aldeed:collection2
 useraccounts:bootstrap
 mike:mocha
 useraccounts:iron-routing
-fixtures
 standard-minifiers
 meteor-base
 mobile-experience
@@ -29,3 +28,7 @@ ejson
 spacebars
 check
 ecmascript
+fixtures
+es5-shim
+promise
+ecmascript-collections
