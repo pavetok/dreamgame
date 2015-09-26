@@ -1,7 +1,3 @@
-/**
- * @constructor
- * @extends {BasePage}
- */
 MainPage = class MainPage extends BasePage {
   constructor() {
     super('/');

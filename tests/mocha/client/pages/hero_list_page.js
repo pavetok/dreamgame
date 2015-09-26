@@ -1,16 +1,12 @@
 const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
 
-/**
- * @constructor
- * @extends {BasePage}
- */
 HeroListPage = class HeroListPage extends BasePage {
   constructor() {
     super('/heroes');
   }
 
   shouldContain(expected, done) {
-    waitUntilSuccess(function assert() {
+    waitUntilSuccess(() => {
       const $heroes = $('.hero');
       chai.expect($heroes.length).to.equal(1, 'User hero count');
 

@@ -1,9 +1,10 @@
 /* eslint no-console: 0, no-param-reassign: 0, no-empty: 0 */
 
 waitUntilSuccess = (assertion, done, timeout) => {
+  const fake = () => {
+  };
+  done = done || fake;
   timeout = timeout || 1500;
-  done = done || function fake() {
-      };
 
   const intervalId = Meteor.setInterval(() => {
     try {
@@ -14,11 +15,11 @@ waitUntilSuccess = (assertion, done, timeout) => {
     }
   }, 100);
 
-  const timerId = Meteor.setTimeout(() => complete(), timeout);
+  const timeoutId = Meteor.setTimeout(() => complete(), timeout);
 
   function complete() {
     Meteor.clearInterval(intervalId);
-    Meteor.clearTimeout(timerId);
+    Meteor.clearTimeout(timeoutId);
     try {
       assertion();
       done();

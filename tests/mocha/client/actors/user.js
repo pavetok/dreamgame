@@ -1,6 +1,3 @@
-/**
- * @constructor
- */
 User = class User {
   constructor() {
     this.currentPage = null;
@@ -46,7 +43,7 @@ User = class User {
   }
 
   login(done) {
-    Meteor.loginWithPassword(this.username || this.email, this.password, function loginCallback(error) {
+    Meteor.loginWithPassword(this.username || this.email, this.password, error => {
       if (error) {
         done(error);
       }

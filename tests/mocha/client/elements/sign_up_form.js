@@ -1,7 +1,3 @@
-/**
- * @constructor
- * @extends {Jelement}
- */
 SignUpForm = class SignUpForm extends Jelement {
   constructor() {
     super('#at-pwd-form');

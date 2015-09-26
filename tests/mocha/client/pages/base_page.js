@@ -1,10 +1,5 @@
 const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
 
-/**
- * @param {string} path
- * @constructor
- * @extends {Jelement}
- */
 BasePage = class BasePage extends Jelement {
   constructor(path) {
     super('body');
@@ -12,9 +7,8 @@ BasePage = class BasePage extends Jelement {
   }
 
   shouldBeVisible(done) {
-    const self = this;
-    waitUntilSuccess(function assert() {
-      chai.expect(window.location.href).to.match(self.path);
+    waitUntilSuccess(() => {
+      chai.expect(window.location.href).to.match(this.path);
     }, done);
   }
 };

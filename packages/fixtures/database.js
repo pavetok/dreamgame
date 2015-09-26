@@ -1,14 +1,12 @@
 /* eslint no-console: 0, no-param-reassign: 0 */
 
-/**
- * @constructor
- */
 Database = class Database {
 
   clear(done) {
-    done = done || function fake() {
-        };
-    Meteor.call('clearDb', (error) => {
+    const fake = () => {
+    };
+    done = done || fake;
+    Meteor.call('clearDb', error => {
       if (error) {
         done(error);
       }
@@ -17,7 +15,7 @@ Database = class Database {
   }
 
   reset(done) {
-    Meteor.call('resetDb', (error) => {
+    Meteor.call('resetDb', error => {
       if (error) {
         done(error);
       }

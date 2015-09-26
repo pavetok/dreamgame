@@ -1,9 +1,5 @@
 const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
 
-/**
- * @param {string} selector
- * @constructor
- */
 Jelement = class Jelement {
   constructor(selector) {
     this.selector = selector;
@@ -40,9 +36,8 @@ Jelement = class Jelement {
   }
 
   shouldBeVisible(done) {
-    const self = this;
-    waitUntilSuccess(function assert() {
-      chai.expect(self.isVisible()).to.equal(true, 'Element<' + self.selector + '> should be visible, but does not');
+    waitUntilSuccess(() => {
+      chai.expect(this.isVisible()).to.equal(true, 'Element<' + this.selector + '> should be visible, but does not');
     }, done);
   }
 };
