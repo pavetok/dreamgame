@@ -1,15 +1,15 @@
-/* eslint func-names: 0 */
 const Database = Package.fixtures.Database;
 
-MochaWeb.testOnly(function() {
-  describe('Database', function() {
+MochaWeb.testOnly(() => {
+  describe('Database', () => {
     const database = new Database();
+    let hero;
 
-    beforeEach(function(done) {
+    beforeEach(done => {
       database.clear(done);
     });
 
-    beforeEach(function() {
+    beforeEach(() => {
       hero = new Hero({
         name: 'hero1',
         url: 'url1',
@@ -17,14 +17,14 @@ MochaWeb.testOnly(function() {
       });
     });
 
-    it('can save entity', function(done) {
+    it('can save entity', done => {
       // when
       database.contains(hero);
       // then
       database.shouldContain(hero, done);
     });
 
-    it('can be reseted', function(done) {
+    it('can be reseted', done => {
       // given
       database.contains(hero);
       // when

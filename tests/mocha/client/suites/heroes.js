@@ -1,30 +1,30 @@
-/* eslint func-names: 0 */
 const Database = Package.fixtures.Database;
 const waitUntilSuccess = Package.fixtures.waitUntilSuccess;
 
-MochaWeb.testOnly(function() {
-  describe('Hero', function() {
+MochaWeb.testOnly(() => {
+  describe('Hero', () => {
     const database = new Database();
     const user = new User().withEmail('email@domain.com').withPass('password');
     const mainPage = new MainPage();
     const heroListPage = new HeroListPage();
+    let hero;
 
-    beforeEach(function(done) {
+    beforeEach(done => {
       database.reset(done);
     });
 
-    beforeEach(function () {
+    beforeEach(() => {
       user.opens(mainPage);
       user.signIn();
     });
 
-    beforeEach(function (done) {
-      waitUntilSuccess(function assert() {
+    beforeEach(done => {
+      waitUntilSuccess(() => {
         chai.expect(Meteor.userId()).to.exist;
       }, done);
     });
 
-    beforeEach(function() {
+    beforeEach(() => {
       hero = new Hero({
         name: 'hero1',
         url: 'url1',
@@ -32,7 +32,7 @@ MochaWeb.testOnly(function() {
       });
     });
 
-    it('should be presented on the page', function(done) {
+    it('should be presented on the page', done => {
       // given
       database.contains(hero);
       // when
