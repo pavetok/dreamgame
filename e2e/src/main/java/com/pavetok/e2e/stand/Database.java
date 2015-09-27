@@ -1,17 +1,20 @@
-package com.pavetok.e2e.ui;
+package com.pavetok.e2e.stand;
 
-import org.junit.Before;
+import com.pavetok.e2e.domain.Hero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 
-public class AbstractTest {
+public class Database {
 
     @Autowired
-    MongoTemplate template;
+    private MongoTemplate template;
 
-    @Before
-    public void abstractTestSetUp() throws Exception {
+    public void contains(Hero hero) {
+
+    }
+
+    public void clear() {
         template.remove(new Query(), "users");
     }
 }

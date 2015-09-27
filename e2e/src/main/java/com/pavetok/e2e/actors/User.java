@@ -1,5 +1,6 @@
 package com.pavetok.e2e.actors;
 
+import com.pavetok.e2e.domain.Hero;
 import com.pavetok.e2e.ui.pages.AbstractPage;
 import com.pavetok.e2e.ui.pages.SignUpPage;
 
@@ -43,5 +44,9 @@ public class User {
 
     public void shouldSee(AbstractPage page) {
         page.shouldBeVisible();
+    }
+
+    public void shouldSee(Hero hero) {
+
     }
 }
