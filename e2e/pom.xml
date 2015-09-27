@@ -8,10 +8,20 @@
     <artifactId>e2e</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
+    <properties>
+        <selenide.baseUrl>localhost:3000</selenide.baseUrl>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
             <version>LATEST</version>
         </dependency>
 
@@ -55,6 +65,17 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <selenide.baseUrl>localhost:3000</selenide.baseUrl>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>

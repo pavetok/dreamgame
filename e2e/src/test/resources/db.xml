@@ -7,14 +7,15 @@
        http://www.springframework.org/schema/data/mongo
        http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
 
-    <mongo:mongo host="localhost" port="3001">
-    </mongo:mongo>
+    <mongo:mongo host="localhost" port="3001"/>
 
     <mongo:db-factory dbname="meteor" mongo-ref="mongo"/>
 
     <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
         <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
     </bean>
+
+    <mongo:repositories base-package="com.pavetok.e2e.db" />
 
     <bean id="database" class="com.pavetok.e2e.stand.Database"/>
 

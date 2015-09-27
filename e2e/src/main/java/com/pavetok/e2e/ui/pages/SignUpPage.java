@@ -23,8 +23,8 @@ public class SignUpPage extends AbstractPage {
 
     public void signUp(User visitor) {
         emailField.setValue(visitor.getEmail());
-        passwordField.setValue(visitor.getPass());
-        passwordAgain.setValue(visitor.getPass());
+        passwordField.setValue(visitor.getPassword());
+        passwordAgain.setValue(visitor.getPassword());
         submitButton.click();
     }
 

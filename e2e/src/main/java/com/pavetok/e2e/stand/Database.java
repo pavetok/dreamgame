@@ -1,20 +1,28 @@
 package com.pavetok.e2e.stand;
 
+import com.pavetok.e2e.actors.User;
+import com.pavetok.e2e.db.HeroRepository;
+import com.pavetok.e2e.db.UserRepository;
 import com.pavetok.e2e.domain.Hero;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Query;
 
 public class Database {
 
     @Autowired
-    private MongoTemplate template;
+    private UserRepository userRepository;
+    @Autowired
+    private HeroRepository heroRepository;
 
     public void contains(Hero hero) {
-
+        heroRepository.save(hero);
     }
 
     public void clear() {
-        template.remove(new Query(), "users");
+        userRepository.deleteAll();
+        heroRepository.deleteAll();
+    }
+
+    public User get(User user) {
+        return userRepository.findByEmail(user.getEmail());
     }
 }

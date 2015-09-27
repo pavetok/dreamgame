@@ -3,14 +3,18 @@ package com.pavetok.e2e.actors;
 import com.pavetok.e2e.domain.Hero;
 import com.pavetok.e2e.ui.pages.AbstractPage;
 import com.pavetok.e2e.ui.pages.SignUpPage;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@Document(collection = "users")
 public class User {
 
-    private SignUpPage signUpPage;
+    private String id;
     private String email;
     private String password;
+
+    private SignUpPage signUpPage;
 
     public User() {
         signUpPage = new SignUpPage();
@@ -21,6 +25,7 @@ public class User {
     }
 
     public void registers() {
+        opens(signUpPage);
         signUpPage.signUp(this);
     }
 
@@ -28,7 +33,11 @@ public class User {
         return email;
     }
 
-    public String getPass() {
+    public String getId() {
+        return id;
+    }
+
+    public String getPassword() {
         return password;
     }
 
