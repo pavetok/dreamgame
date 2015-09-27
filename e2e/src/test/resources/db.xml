@@ -16,8 +16,4 @@
     </bean>
 
     <mongo:repositories base-package="com.pavetok.e2e.db" />
-
-    <bean id="database" class="com.pavetok.e2e.stand.Database"/>
-
-    <bean id="application" class="com.pavetok.e2e.stand.Application"/>
 </beans>

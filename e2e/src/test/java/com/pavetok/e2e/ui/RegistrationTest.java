@@ -3,8 +3,8 @@ package com.pavetok.e2e.ui;
 import com.pavetok.e2e.actors.User;
 import com.pavetok.e2e.ui.pages.HeroListPage;
 import com.pavetok.e2e.ui.pages.SignUpPage;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class RegistrationTest extends BaseTest {
 
@@ -12,7 +12,7 @@ public class RegistrationTest extends BaseTest {
     private SignUpPage signUpPage = new SignUpPage();
     private HeroListPage heroListPage = new HeroListPage();
 
-    @Before
+    @BeforeMethod
     public void dataSetUp() throws Exception {
         visitor = user;
     }

@@ -3,38 +3,37 @@ package com.pavetok.e2e.ui;
 import com.pavetok.e2e.actors.User;
 import com.pavetok.e2e.stand.Application;
 import com.pavetok.e2e.stand.Database;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:db.xml"})
-public class BaseTest {
+@ContextConfiguration(locations = {"classpath:*.xml"})
+public class BaseTest extends AbstractTestNGSpringContextTests {
 
     @Autowired
     protected Database database;
     @Autowired
     protected Application application;
-
+    @Autowired
     protected User user;
 
     @BeforeClass
-    public static void baseSuiteSetUp() {
-//        Configuration.baseUrl = "localhost:3000";
-    }
-
-    @Before
-    public void baseTestSetUp() throws Exception {
-        database.clear();
-    }
-
-    @Before
-    public void baseDataSetUp() throws Exception {
-        user = new User()
+    public void baseSuiteSetUp() {
+        database.userRepository.deleteAll();
+        user = user
                 .withEmail("email@domain.com")
                 .withPass("password");
+    }
+
+    @BeforeMethod
+    public void baseTestSetUp() throws Exception {
+        database.heroRepository.deleteAll();
+    }
+
+    @BeforeMethod
+    public void baseDataSetUp() throws Exception {
+        // empty
     }
 }

@@ -1,20 +1,27 @@
 package com.pavetok.e2e.actors;
 
+import com.pavetok.e2e.db.UserRepository;
 import com.pavetok.e2e.domain.Hero;
 import com.pavetok.e2e.ui.pages.AbstractPage;
 import com.pavetok.e2e.ui.pages.SignUpPage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static com.jayway.awaitility.Awaitility.await;
+import static org.hamcrest.Matchers.not;
 
 @Document(collection = "users")
 public class User {
+    @Autowired
+    private UserRepository repository;
+    private SignUpPage signUpPage;
 
     private String id;
     private String email;
     private String password;
-
-    private SignUpPage signUpPage;
 
     public User() {
         signUpPage = new SignUpPage();
@@ -29,12 +36,16 @@ public class User {
         signUpPage.signUp(this);
     }
 
-    public String getEmail() {
-        return email;
+    public String getId() {
+        if (id == null) {
+            await().until(repository::count, not(0));
+            id = repository.findByEmail(getEmail()).getId();
+        }
+        return id;
     }
 
-    public String getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
     public String getPassword() {
@@ -56,6 +67,6 @@ public class User {
     }
 
     public void shouldSee(Hero hero) {
-
+        $(".hero").find(".hero-name").shouldHave(text(hero.getName()));
     }
 }
