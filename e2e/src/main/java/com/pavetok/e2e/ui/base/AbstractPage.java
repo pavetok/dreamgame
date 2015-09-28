@@ -1,4 +1,4 @@
-package com.pavetok.e2e.ui.pages;
+package com.pavetok.e2e.ui.base;
 
 public abstract class AbstractPage {
 

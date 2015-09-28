@@ -1,8 +1,9 @@
-package com.pavetok.e2e.ui;
+package com.pavetok.e2e.ui.tests;
 
 import com.pavetok.e2e.domain.User;
-import com.pavetok.e2e.ui.pages.HeroListPage;
-import com.pavetok.e2e.ui.pages.SignUpPage;
+import com.pavetok.e2e.ui.base.BaseTest;
+import com.pavetok.e2e.ui.pages.hero_list.HeroListPage;
+import com.pavetok.e2e.ui.pages.signup.SignUpPage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

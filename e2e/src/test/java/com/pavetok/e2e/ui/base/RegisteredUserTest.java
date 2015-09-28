@@ -1,8 +1,8 @@
-package com.pavetok.e2e.ui;
+package com.pavetok.e2e.ui.base;
 
 import org.testng.annotations.BeforeClass;
 
-public class BaseUserTest extends BaseTest {
+public class RegisteredUserTest extends BaseTest {
 
     @BeforeClass
     public void baseDataSetUp() throws Exception {

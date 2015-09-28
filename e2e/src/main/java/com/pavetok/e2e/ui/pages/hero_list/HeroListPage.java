@@ -1,14 +1,13 @@
-package com.pavetok.e2e.ui.pages;
+package com.pavetok.e2e.ui.pages.hero_list;
 
-import com.pavetok.e2e.ui.elements.HeroList;
+import com.pavetok.e2e.ui.base.AbstractPage;
 
 public class HeroListPage extends AbstractPage {
 
-    private final HeroList heroList;
+    private final HeroList heroList = new HeroList();
 
     public HeroListPage() {
         super("/heroes");
-        heroList = new HeroList();
     }
 
     @Override

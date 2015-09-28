@@ -1,8 +1,8 @@
 package com.pavetok.e2e.domain;
 
 import com.pavetok.e2e.storage.UserRepository;
-import com.pavetok.e2e.ui.pages.AbstractPage;
-import com.pavetok.e2e.ui.pages.SignUpPage;
+import com.pavetok.e2e.ui.base.AbstractPage;
+import com.pavetok.e2e.ui.pages.signup.SignUpPage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.mapping.Document;
 

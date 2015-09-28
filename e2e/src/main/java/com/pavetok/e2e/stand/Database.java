@@ -38,7 +38,7 @@ public class Database {
         heroRepository.deleteAll();
     }
 
-    public void toDefault() {
+    public void reset() {
         heroRepository.deleteAll();
     }
 }

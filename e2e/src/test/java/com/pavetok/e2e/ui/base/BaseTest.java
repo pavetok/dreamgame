@@ -1,4 +1,4 @@
-package com.pavetok.e2e.ui;
+package com.pavetok.e2e.ui.base;
 
 import com.pavetok.e2e.domain.User;
 import com.pavetok.e2e.stand.Database;
@@ -26,7 +26,7 @@ public class BaseTest extends AbstractTestNGSpringContextTests {
 
     @BeforeMethod
     public void baseTestSetUp() throws Exception {
-        database.toDefault();
+        database.reset();
     }
 
     @BeforeMethod
