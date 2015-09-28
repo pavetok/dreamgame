@@ -1,6 +1,6 @@
 package com.pavetok.e2e.ui;
 
-import com.pavetok.e2e.actors.User;
+import com.pavetok.e2e.domain.User;
 import com.pavetok.e2e.ui.pages.HeroListPage;
 import com.pavetok.e2e.ui.pages.SignUpPage;
 import org.testng.annotations.BeforeMethod;

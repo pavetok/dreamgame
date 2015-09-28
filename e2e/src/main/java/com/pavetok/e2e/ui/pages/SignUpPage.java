@@ -1,7 +1,7 @@
 package com.pavetok.e2e.ui.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.pavetok.e2e.actors.User;
+import com.pavetok.e2e.domain.User;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;

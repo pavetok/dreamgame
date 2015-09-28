@@ -1,14 +1,16 @@
 package com.pavetok.e2e.domain;
 
+import com.pavetok.e2e.storage.Storable;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "heroes")
-public class Hero {
+public class Hero implements Storable {
 
     private String id;
     private String name;
     private String userId;
 
+    @Override
     public String getId() {
         return id;
     }

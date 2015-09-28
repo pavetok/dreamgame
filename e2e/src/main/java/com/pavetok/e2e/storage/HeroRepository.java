@@ -1,4 +1,4 @@
-package com.pavetok.e2e.db;
+package com.pavetok.e2e.storage;
 
 import com.pavetok.e2e.domain.Hero;
 import org.springframework.data.repository.PagingAndSortingRepository;

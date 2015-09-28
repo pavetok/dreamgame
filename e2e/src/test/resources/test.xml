@@ -4,9 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="user" class="com.pavetok.e2e.actors.User"/>
-
-    <bean id="database" class="com.pavetok.e2e.stand.Database"/>
-
-    <bean id="application" class="com.pavetok.e2e.stand.Application"/>
+    <bean id="user" class="com.pavetok.e2e.domain.User"/>
+    <bean id="database" class="com.pavetok.e2e.stand.Database" init-method="initialize"/>
 </beans>

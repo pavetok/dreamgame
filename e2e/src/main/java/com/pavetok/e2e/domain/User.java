@@ -1,7 +1,6 @@
-package com.pavetok.e2e.actors;
+package com.pavetok.e2e.domain;
 
-import com.pavetok.e2e.db.UserRepository;
-import com.pavetok.e2e.domain.Hero;
+import com.pavetok.e2e.storage.UserRepository;
 import com.pavetok.e2e.ui.pages.AbstractPage;
 import com.pavetok.e2e.ui.pages.SignUpPage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import static org.hamcrest.Matchers.not;
 
 @Document(collection = "users")
 public class User {
+
     @Autowired
     private UserRepository repository;
     private SignUpPage signUpPage;

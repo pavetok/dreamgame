@@ -1,6 +1,6 @@
-package com.pavetok.e2e.db;
+package com.pavetok.e2e.storage;
 
-import com.pavetok.e2e.actors.User;
+import com.pavetok.e2e.domain.User;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
