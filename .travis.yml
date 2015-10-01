@@ -4,7 +4,9 @@ language: java
 
 jdk: oraclejdk8
 
-env: METEOR_HOME=$HOME/.meteor
+env: >
+  METEOR_HOME=$HOME/.meteor
+  JASMINE_BROWSER=PhantomJS
 
 cache:
   directories:
@@ -27,3 +29,6 @@ before_script:
 
 script:
   - "cd tests/e2e && mvn test"
+
+notifications:
+  email: change
