@@ -17,13 +17,16 @@ before_install:
   - "export PATH=$METEOR_HOME:$PATH"
   - "test -f $METEOR_HOME/meteor || curl https://install.meteor.com | sh"
   - "npm install velocity-cli -g"
+  - "npm install eslint-config-airbnb babel-eslint eslint -g"
 
 install:
   - "meteor update"
 
 before_script:
+  - "eslint $(pwd)"
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
+  - "meteor lint"
   - "velocity test-app --ci"
   - "meteor run --production  > /dev/null 2>&1 &"
 
