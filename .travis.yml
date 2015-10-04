@@ -36,4 +36,5 @@ cache:
   - "$HOME/.m2"
 
 notifications:
-  email: change
+    on_success: change
+    on_failure: change
