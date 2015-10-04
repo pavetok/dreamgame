@@ -1,5 +1,5 @@
-describe('Jasmine', function () {
-  it('server integration', function () {
+describe('Jasmine', () => {
+  it('server integration', () => {
     console.log('i am here');
   });
 });

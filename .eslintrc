@@ -4,11 +4,17 @@
         "node": true,
         "jquery": true,
         "meteor": true,
-        "mocha": true
+        "jasmine": true
     },
     "rules": {
         "no-func-assign": 0,
         "no-use-before-define": [2, "nofunc"]
+    },
+    "globals": {
+        "AccountsTemplates": false,
+        "SimpleSchema": false,
+        "Heroes": false,
+        "Hero": false
     },
     "extends": "airbnb/base"
 }
