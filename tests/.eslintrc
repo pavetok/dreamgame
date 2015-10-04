@@ -1,13 +1,8 @@
 {
   "env": {
-    "jasmine": true,
-    "mocha": true
+    "jasmine": true
   },
   "rules": {
     "no-console": 0
-  },
-  "globals": {
-    "MochaWeb": false,
-    "chai": false
   }
 }

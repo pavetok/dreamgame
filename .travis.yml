@@ -8,6 +8,9 @@ env: >
   METEOR_HOME=$HOME/.meteor
   JASMINE_BROWSER=Firefox
 
+before_cache:
+  - "find $HOME/.m2 -name '*status.properties' -delete"
+
 cache:
   directories:
   - "$HOME/.meteor"
@@ -16,8 +19,8 @@ cache:
 before_install:
   - "export PATH=$METEOR_HOME:$PATH"
   - "test -f $METEOR_HOME/meteor || curl https://install.meteor.com | sh"
-  - "npm install velocity-cli -g"
   - "npm install eslint babel-eslint eslint-config-airbnb -g"
+  - "npm install velocity-cli -g"
 
 install:
   - "meteor update"
