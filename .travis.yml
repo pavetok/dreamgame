@@ -8,14 +8,6 @@ env: >
   METEOR_HOME=$HOME/.meteor
   JASMINE_BROWSER=Firefox
 
-before_cache:
-  - "find $HOME/.m2 -name '*status.properties' -delete"
-
-cache:
-  directories:
-  - "$HOME/.meteor"
-  - "$HOME/.m2"
-
 before_install:
   - "export PATH=$METEOR_HOME:$PATH"
   - "test -f $METEOR_HOME/meteor || curl https://install.meteor.com | sh"
@@ -34,6 +26,14 @@ before_script:
 
 script:
   - "cd tests/e2e && mvn test"
+
+before_cache:
+  - "find $HOME/.m2 -name '*status.properties' -delete"
+
+cache:
+  directories:
+  - "$HOME/.meteor"
+  - "$HOME/.m2"
 
 notifications:
   email: change
