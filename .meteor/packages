@@ -33,4 +33,3 @@ promise
 ecmascript-collections
 sanjo:jasmine
 velocity:html-reporter
-dburles:eslint
