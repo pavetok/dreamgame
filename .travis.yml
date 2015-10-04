@@ -6,6 +6,7 @@ jdk: oraclejdk8
 
 env: >
   METEOR_HOME=$HOME/.meteor
+  JASMINE_BROWSER=Firefox
 
 cache:
   directories:
