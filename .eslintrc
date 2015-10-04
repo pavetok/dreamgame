@@ -3,8 +3,7 @@
         "browser": true,
         "node": true,
         "jquery": true,
-        "meteor": true,
-        "jasmine": true
+        "meteor": true
     },
     "rules": {
         "no-func-assign": 0,
