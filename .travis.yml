@@ -4,22 +4,25 @@ language: java
 
 jdk: oraclejdk8
 
-env: METEOR_HOME=$HOME/.meteor
+branches:
+  only:
+    - master
 
-cache:
-  directories:
-  - "$HOME/.meteor"
-  - "$HOME/.m2"
+env: >
+  METEOR_HOME=$HOME/.meteor
+  JASMINE_BROWSER=Firefox
 
 before_install:
   - "export PATH=$METEOR_HOME:$PATH"
   - "test -f $METEOR_HOME/meteor || curl https://install.meteor.com | sh"
-  - "npm install velocity-cli -g"
+  - "npm install -g eslint babel-eslint eslint-config-airbnb"
+  - "npm install -g velocity-cli"
 
 install:
   - "meteor update"
 
 before_script:
+  - "eslint $(pwd)"
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - "velocity test-app --ci"
@@ -27,3 +30,16 @@ before_script:
 
 script:
   - "cd tests/e2e && mvn test"
+
+before_cache:
+  - "find $HOME/.m2 -name '*status.properties' -delete"
+
+cache:
+  directories:
+  - "$HOME/.meteor"
+  - "$HOME/.m2"
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change

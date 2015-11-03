@@ -1,5 +1,3 @@
-/* eslint no-console: 0, no-param-reassign: 0, no-empty: 0 */
-
 waitUntilSuccess = (assertion, done, timeout) => {
   const fake = () => {
   };

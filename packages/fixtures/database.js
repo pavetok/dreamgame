@@ -1,5 +1,3 @@
-/* eslint no-console: 0, no-param-reassign: 0 */
-
 Database = class Database {
 
   clear(done) {

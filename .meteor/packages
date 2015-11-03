@@ -11,7 +11,6 @@ iron:router
 sacha:spin
 aldeed:collection2
 useraccounts:bootstrap
-mike:mocha
 useraccounts:iron-routing
 standard-minifiers
 meteor-base
@@ -32,3 +31,5 @@ fixtures
 es5-shim
 promise
 ecmascript-collections
+sanjo:jasmine
+velocity:html-reporter
