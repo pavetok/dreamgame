@@ -11,8 +11,8 @@ env: >
 before_install:
   - "export PATH=$METEOR_HOME:$PATH"
   - "test -f $METEOR_HOME/meteor || curl https://install.meteor.com | sh"
-  - "npm install eslint babel-eslint eslint-config-airbnb -g"
-  - "npm install velocity-cli -g"
+  - "npm install -g eslint babel-eslint eslint-config-airbnb"
+  - "npm install -g velocity-cli"
 
 install:
   - "meteor update"
